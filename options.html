@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <title>Miniflux Notifier</title>
+    </head>
+    <body>
+        <div id="carbonForm">
+            <h1>Miniflux Notifier Settings</h1>
+            <div id="status" class=""></div>
+            <form id="signupForm">
+                <div class="fieldContainer">
+                    
+                        <fieldset>
+                            <label for="url">Miniflux URL:</label>
+                            <input type="text" value="" placeholder="Miniflux URL" name="url" id="minifluxurl" />
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="login">Login:</label>
+                            <input type="text" value="" placeholder="Login" name="login" id="minifluxlogin" />
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="password">Password:</label>
+                            <input type="password" value="" placeholder="Password" name="password" id="minifluxpassword" />
+                        </fieldset>
+
+                        <fieldset style="margin-top: 20px;" id="check_update">
+                            <table>
+                                    <tr>
+                                        <td>
+                                                <label for="update_seconds">Check news every:</label>
+                                        </td>
+                                        <td>
+                                                <select id="update_seconds">
+                                                        <option value="60">1 minute</option>
+                                                        <option value="300">5 minute</option>
+                                                        <option value="900" selected>15 minute</option>
+                                                        <option value="1800">30 minute</option>
+                                                        <option value="3600">1 hour</option>
+                                                        <option value="10800">3 hours</option>
+                                                        <option value="18000">5 hours</option>
+                                                </select>
+                                        </td>
+                                        <td>
+                                                <input type="submit" name="update" id="update" value="Change" />
+                                        </td>
+                                    </tr>
+                            </table>
+                        </fieldset>
+                </div>
+                
+                <div class="signupButton">
+                    <input type="submit" name="submit" id="submit" value="Signup" />
+                </div>
+            </form>
+        </div>
+        
+        <script type="text/javascript" src="scripts/jquery-2.0.0.min.js"></script>
+        <script type="text/javascript" src="scripts/options.js"></script>
+    </body>
+</html>
