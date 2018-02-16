@@ -1,5 +1,4 @@
 function get_unread() {
-
     var headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(localStorage["minifluxlogin"] + ':' + localStorage["minifluxpassword"]));
     
@@ -20,7 +19,6 @@ function get_unread() {
                 }
             }
         );
-
 }
 
 function notification(from) {

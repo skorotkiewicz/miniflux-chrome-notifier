@@ -34,11 +34,9 @@ function load_settings() {
     document.getElementById('minifluxlogin').value = minifluxlogin;
     document.getElementById('minifluxpassword').value = '';
     document.getElementById('update_seconds').value = update_seconds;
-
 }
 
 if (localStorage["minifluxlogin"] != undefined && localStorage["minifluxlogin"] != undefined && localStorage["minifluxlogin"] != undefined) {
-
     var headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(localStorage["minifluxlogin"] + ':' + localStorage["minifluxpassword"]));
 
@@ -61,5 +59,4 @@ if (localStorage["minifluxlogin"] != undefined && localStorage["minifluxlogin"] 
                 }
             }
         );
-
 }
