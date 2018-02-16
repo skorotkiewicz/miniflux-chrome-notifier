@@ -37,26 +37,29 @@ function load_settings() {
 
 }
 
+if (localStorage["minifluxlogin"] != undefined && localStorage["minifluxlogin"] != undefined && localStorage["minifluxlogin"] != undefined) {
 
-var headers = new Headers();
-headers.append('Authorization', 'Basic ' + btoa(localStorage["minifluxlogin"] + ':' + localStorage["minifluxpassword"]));
+    var headers = new Headers();
+    headers.append('Authorization', 'Basic ' + btoa(localStorage["minifluxlogin"] + ':' + localStorage["minifluxpassword"]));
 
-fetch(localStorage["minifluxurl"] + '/v1/users/' + localStorage["minifluxlogin"], {
-        method:'GET',
-        headers: headers,
-    })
-    .then(
-        r => r.json()
-    )
-    .then(
-        obj => {
-            if (obj.username == localStorage["minifluxlogin"]) {
-                $("div#status").attr("class", "success");
-                $('div#status').text('You are connected with your Miniflux.');
-            } else {
-                $("div#status").attr("class", "error");
-                $('div#status').text('You are not connected with any Miniflux.');
-                alert('Please enter your correct login details');
+    fetch(localStorage["minifluxurl"] + '/v1/users/' + localStorage["minifluxlogin"], {
+            method:'GET',
+            headers: headers,
+        })
+        .then(
+            r => r.json()
+        )
+        .then(
+            obj => {
+                if (obj.username == localStorage["minifluxlogin"]) {
+                    $("div#status").attr("class", "success");
+                    $('div#status').text('You are connected with your Miniflux.');
+                } else {
+                    $("div#status").attr("class", "error");
+                    $('div#status').text('You are not connected with any Miniflux.');
+                    alert('Please enter your correct login details');
+                }
             }
-        }
-    );
+        );
+
+}

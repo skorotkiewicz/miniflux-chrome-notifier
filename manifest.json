@@ -4,7 +4,13 @@
   "manifest_version": 2,
   
   "description": "Miniflux feed reader Notifications",
-  "icons": { "16" : "img/icon.png"},
+  "icons": { 
+    "16" : "img/icon.png",
+    "32": "img/icon.png",
+    "48": "img/icon.png",
+    "64": "img/icon.png",
+    "128": "img/icon.png"
+  },
   "homepage_url": "https://gitlab.itunix.eu/skorotkiewicz/miniflux-chrome-notifier",
   "background":{
     "persistent": true,
