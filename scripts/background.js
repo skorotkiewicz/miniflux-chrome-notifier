@@ -27,7 +27,7 @@ function notification(from) {
         type: 'basic',
         iconUrl: '../img/icon.png',
         message: 'From: ' + from,
-        contextMessage: ' ',
+        contextMessage: localStorage["minifluxurl"],
         isClickable: true
     }, function (notificationId) {});
 
