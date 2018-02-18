@@ -38,7 +38,13 @@ function notification(from) {
 }
 
 if (localStorage["update_seconds"] != undefined) {
-    setTimeout(get_unread, 1000 * localStorage["update_seconds"]);
+    chrome.alarms.create("notification", { delayInMinutes: parseInt(localStorage["update_seconds"]), periodInMinutes: parseInt(localStorage["update_seconds"]) });
 } else {
-    setTimeout(get_unread, 1000 * 60);
+    chrome.alarms.create("notification", { delayInMinutes: 1, periodInMinutes: 1 });
 }
+
+  chrome.alarms.onAlarm.addListener(function(alarm) {
+    if (alarm.name === "notification") {
+        get_unread();
+    }
+  });

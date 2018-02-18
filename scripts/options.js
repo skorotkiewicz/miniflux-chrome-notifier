@@ -21,7 +21,6 @@ $("#submit").click(function() {
 
 $("#update").click(function() {
     localStorage["update_seconds"] = document.getElementById('update_seconds').value;
-    console.log(localStorage["update_seconds"]);
 });
 
 function load_settings() {
