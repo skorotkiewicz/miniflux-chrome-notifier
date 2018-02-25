@@ -22,17 +22,22 @@ function get_unread() {
 }
 
 function notification(from) {
-    chrome.notifications.create(localStorage["minifluxurl"] + '/unread', {
+    var linkMap = {};
+    chrome.notifications.create({
         title: 'I have something new for you from: ',
         type: 'basic',
         iconUrl: '../img/icon.png',
         message: 'From: ' + from,
         contextMessage: localStorage["minifluxurl"],
         isClickable: true
-    }, function (notificationId) {});
+    }, function (notifId) {
+        linkMap[notifId] = localStorage["minifluxurl"] + '/unread';
+    });
 
-    chrome.notifications.onClicked.addListener(function (notificationId) {
-        chrome.tabs.create({ url: notificationId });
+    chrome.notifications.onClicked.addListener(function (notifId) {
+        if (linkMap[notifId]) {
+            chrome.tabs.create({ url: linkMap[notifId] });
+        }
         chrome.browserAction.setBadgeText({ text: '' });
     });
 }
